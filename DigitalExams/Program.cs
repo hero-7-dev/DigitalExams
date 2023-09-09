@@ -1,7 +1,15 @@
+using DigitalExams.IRepository;
+using DigitalExams.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//var constring = builder.Configuration["DefaultConnection"];
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IStudentsRepository, StudentsRepository>();
+builder.Services.AddScoped<IExaminationQuestionsRepository, ExaminationQuestionsRepository>();
 
 var app = builder.Build();
 

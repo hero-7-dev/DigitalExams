@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DigitalExams.Models.ExaminationQuestion> 
+
+<h2>Examination Questions</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Question Text</th>
+            <th>Question Type</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+                <td>@question.Id</td>
+                <td>@question.QuestionText</td>
+                <td>@question.QuestionType</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@question.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@question.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@question.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
